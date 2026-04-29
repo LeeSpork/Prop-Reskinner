@@ -1,0 +1,32 @@
+﻿<NomaiObject>
+
+	<TextBlock>
+		<ID>1</ID>
+		<Text>One.</Text>
+	</TextBlock>
+
+	<TextBlock>
+		<ID>2</ID>
+		<ParentID>1</ParentID>
+		<Text>Two.</Text>
+	</TextBlock>
+
+	<TextBlock>
+		<ID>3</ID>
+		<ParentID>2</ParentID>
+		<Text>Three.</Text>
+	</TextBlock>
+
+	<TextBlock>
+		<ID>4</ID>
+		<ParentID>3</ParentID>
+		<Text>Four.</Text>
+	</TextBlock>
+	
+	<TextBlock>
+		<ID>5</ID>
+		<ParentID>4</ParentID>
+		<Text>Five.</Text>
+	</TextBlock>
+
+</NomaiObject>

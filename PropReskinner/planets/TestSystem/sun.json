@@ -1,0 +1,35 @@
+{
+	"$schema": "https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/body_schema.json",
+	"name": "LeeSpork.PropReskinnerTestSystem.Sun",
+	"starSystem": "LeeSpork.PropReskinnerTestSystem",
+	"Base": {
+		"centerOfSolarSystem": true,
+		"gravityFallOff": "inverseSquared",
+		"surfaceSize": 1200,
+		"surfaceGravity": 100
+	},
+	"Orbit": {
+		"isStatic": true,
+		"showOrbitLine": false
+	},
+	"Star": {
+		"stellarDeathType": "none", // none = infinite lifespan
+		"size": 1200,
+		"tint": {
+			"r": 250,
+			"g": 200,
+			"b": 160
+		},
+		"lightTint": {
+			"r": 255,
+			"g": 249,
+			"b": 239
+		},
+		"solarLuminosity": 1
+	},
+	"ShipLog": {
+		"mapMode": {
+			"selectable": false
+		}
+	}
+}

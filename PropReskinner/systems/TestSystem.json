@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/star_system_schema.json",
+  "name": "LeeSpork.PropReskinnerTestSystem",
+  "canEnterViaWarpDrive": true,
+  //"warpDriveSpawnPointID": "solar_orbit", // Hot take: warping to a system should put you in space, not crash you into a planet.
+  "startHere": true,
+  "respawnHere": true,
+  "enableTimeLoop": false
+}

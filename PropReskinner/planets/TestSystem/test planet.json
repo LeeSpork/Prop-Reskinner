@@ -1,0 +1,659 @@
+{
+	"$schema": "https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/body_schema.json",
+	"name": "LeeSpork.PropReskinnerTestSystem.TestPlanet",
+	"starSystem": "LeeSpork.PropReskinnerTestSystem",
+	"Base": {
+		"surfaceSize": 500,
+		"surfaceGravity": 6
+	},
+	"Orbit": {
+		"semiMajorAxis": 20000,
+		"primaryBody": "LeeSpork.PropReskinnerTestSystem.Sun"
+	},
+	"MapMarker": {
+		"enabled": true
+	},
+	"Atmosphere": {
+		"size": 1000,
+		"hasOxygen": true
+	},
+	"AmbientLights": [
+		{
+			"intensity": 1
+		}
+	],
+	"HeightMap": {
+		"minHeight": 500,
+		"maxHeight": 500,
+		//"heightMap": "",
+		"resolution": 204,
+		"textureMap": "planets/TestSystem/cube_faces_colourmap.png",
+		"tileBlendMap": "planets/TestSystem/cube_faces_tilemap.png",
+		"redTile": {
+			"textureTile": "planets/TestSystem/tile_positive.png"
+		},
+		"blueTile": {
+			"textureTile": "planets/TestSystem/tile_negative.png"
+		}
+	},
+	"Spawn": {
+		"playerSpawnPoints": [
+			{ // NORTH POLE
+				"startWithSuit": true,
+				"position": {
+					"x": 0,
+					"y": 500,
+					"z": -10
+				},
+				"alignRadial": true
+			},
+			{ // -X/Nomai area
+				"isDefault": true,
+				"startWithSuit": true,
+				"position": {
+					"x": -496.6003,
+					"y": 0.4598641,
+					"z": -58.20639
+				},
+				"rotation": {
+					"x": 1.960763,
+					"y": 353.3107,
+					"z": 89.94719
+				}
+			}
+		],
+		"shipSpawnPoints": [
+			{ // NORTH POLE
+				"position": {
+					"x": 0,
+					"y": 500,
+					"z": 10
+				},
+				"alignRadial": true
+			},
+			{ // -X/Nomai area
+				"isDefault": true,
+				"position": {
+					"x": -493.8725,
+					"y": -8.758338,
+					"z": -78.96597
+				},
+				"rotation": {
+					"x": 19.20144,
+					"y": 170.5656,
+					"z": 268.9442
+				}
+			}
+		]
+	},
+	"Props": {
+		"details": [
+			{ // BENCH
+				"path": "OrbitalProbeCannon_Body/Sector_OrbitalProbeCannon/Sector_Module_Broken/Props_Module_Broken/Prefab_NOM_SimpleChair_NoSkeleton",
+				"position": {
+					"x": -497.9225,
+					"y": 9.101468,
+					"z": -44.61314
+				},
+				"rotation": {
+					"x": 34.16037,
+					"y": 175.5879,
+					"z": 271.2605
+				}
+			},
+			{ // TABLE
+				"path": "BrittleHollow_Body/Sector_BH/Sector_NorthHemisphere/Sector_NorthPole/Sector_HangingCity/Sector_HangingCity_BlackHoleForge/BlackHoleForgePivot/Props_BlackHoleForge/Props_NOM_Table",
+				"position": {
+					"x": -498.0256,
+					"y": 10.08083,
+					"z": -43.23071
+				},
+				"rotation": {
+					"x": 51.76431,
+					"y": 353.5724,
+					"z": 88.13316
+				}
+			},
+			{ // SHELF thin
+				"path": "WhiteholeStation_Body/Sector_WhiteholeStation/Props_WhiteHoleStation/Prefab_NOM_Shelf",
+				"position": {
+					"x": -498.1209,
+					"y": 14.05455,
+					"z": -40.96412
+				},
+				"rotation": {
+					"x": 37.40865,
+					"y": 176.531,
+					"z": 272.028
+				}
+			},
+			{ // STAFF
+				"path": "BrittleHollow_Body/Sector_BH/Sector_NorthHemisphere/Sector_NorthPole/Sector_HangingCity/Sector_HangingCity_BlackHoleForge/BlackHoleForgePivot/Props_BlackHoleForge/Prefab_NOM_Staff",
+				"position": {
+					"x": -498.0592,
+					"y": 14.51381,
+					"z": -41.54914
+				},
+				"rotation": {
+					"x": 347.3643,
+					"y": 174.8583,
+					"z": 271.7047
+				}
+			},
+			{ // CONTAINER w/ spout
+				"path": "Comet_Body/Sector_CO/Sector_CometInterior/Props_CometInterior/Prefab_NOM_Container",
+				"position": {
+					"x": -497.8524,
+					"y": 12.22205,
+					"z": -44.65037
+				},
+				"rotation": {
+					"x": 349.4744,
+					"y": 174.6148,
+					"z": 271.4247
+				}
+			},
+			{ // BOX small
+				"path": "Comet_Body/Sector_CO/Sector_CometInterior/Props_CometInterior/Prefab_NOM_Box",
+				"position": {
+					"x": -497.855,
+					"y": 11.33575,
+					"z": -44.85395
+				},
+				"rotation": {
+					"x": 8.099542,
+					"y": 175.0368,
+					"z": 271.3122
+				}
+			},
+			{ // BOX small broken
+				"path": "Comet_Body/Sector_CO/Sector_CometInterior/Props_CometInterior/Prefab_NOM_BoxBroken",
+				"position": {
+					"x": -499.1526,
+					"y": 9.51117,
+					"z": -42.63744
+				},
+				"rotation": {
+					"x": 346.9147,
+					"y": 355.3075,
+					"z": 88.81394
+				}
+			},
+			{ // BOWL small broken
+				"path": "CaveTwin_Body/Sector_CaveTwin/Sector_SouthHemisphere/Sector_SouthUnderground/Sector_City/Sector_EyeShrine/Props_EyeShrine/Prefab_NOM_SmallBowl (15)",
+				"position": {
+					"x": -499.1045,
+					"y": 9.507379,
+					"z": -43.19207
+				},
+				"rotation": {
+					"x": 37.73748,
+					"y": 175.9332,
+					"z": 271.4609
+				}
+			},
+			{ // potted TREE
+				"path": "WhiteholeStation_Body/Sector_WhiteholeStation/Props_WhiteHoleStation/Prefab_NOM_NomaiTree_Var_1",
+				"position": {
+					"x": -498.0528,
+					"y": 15.64688,
+					"z": -41.21413
+				},
+				"rotation": {
+					"x": 27.38604,
+					"y": 176.1989,
+					"z": 272.0197
+				}
+			},
+			{ // PEDISTAL for statue
+				"path": "GiantsDeep_Body/Sector_GD/Sector_GDInterior/Sector_GDCore/Sector_Module_Sunken/Props_Module_Sunken/Structure_NOM_Column_Base_Square",
+				"position": {
+					"x": -498.4392,
+					"y": -7.071438,
+					"z": -38.83733
+				},
+				"rotation": {
+					"x": 314.0782,
+					"y": 176.3816,
+					"z": 268.8351
+				}
+			},
+			{ // STATUE w/ open eyes
+				"path": "GiantsDeep_Body/Sector_GD/Sector_GDInterior/Sector_GDCore/Sector_Module_Sunken/Props_Module_Sunken/Prefab_NOM_StatueHead",
+				"position": {
+					"x": -499.4361,
+					"y": -7.0856,
+					"z": -38.915
+				},
+				"rotation": {
+					"x": 314.0782,
+					"y": 176.3816,
+					"z": 268.8351
+				}
+			},
+			{ // Vertical board thing
+				"path": "WhiteholeStation_Body/Sector_WhiteholeStation/Interactibles_WhiteholeStation/Prefab_NOM_WhiteHolePetroglyphBoard/Props_NOM_WhiteHolePetroglyphBoard",
+				"position": {
+					"x": -498.4762,
+					"y": -10.23997,
+					"z": -37.63743
+				},
+				"rotation": {
+					"x": 19.20761,
+					"y": 356.091,
+					"z": 91.24268
+				}
+			},
+			{ // RAILING segment 
+				"path": "BrittleHollow_Body/Sector_BH/Sector Quantum Pole Path/Fragment QuantumPolePath 2/Props_QPP2/Prefab_NOM_Railing",
+				"position": {
+					"x": -498.6465,
+					"y": 8.668691,
+					"z": -35.72876
+				},
+				"rotation": {
+					"x": 13.31369,
+					"y": 176.1368,
+					"z": 271.0208
+				}
+			},
+			{ // TORCH (which is also a railing post)
+				"path": "CaveTwin_Body/Sector_CaveTwin/Sector_SouthHemisphere/Sector_SouthSurface/Sector_SouthPole/Lighting_SouthPole/Prefab_NOM_Torch",
+				"position": {
+					"x": -498.6924,
+					"y": 7.5219,
+					"z": -35.3672
+				},
+				"rotation": {
+					"x": 13.31369,
+					"y": 176.1368,
+					"z": 271.0208
+				}
+			},
+			{ // TOYS bundle of 5, no collision
+				"path": "BrittleHollow_Body/Sector_BH/Sector_NorthHemisphere/Sector_NorthPole/Sector_HangingCity/Sector_HangingCity_District1/Props_HangingCity_District1/OtherComponentsGroup/Props_HangingCity_SchoolBuilding/Prefab_NOM_Toys",
+				"rotation": {
+					"x": 69.32929,
+					"y": 179.996552,
+					"z": 275.354
+				},
+				"position": {
+					"x": -497.815948,
+					"y": 16.46888,
+					"z": -43.68116
+				}
+			},
+			{ // Ship landing pad with tractor beam
+				"path": "QuantumIsland_Body/Sector_QuantumIsland/Interactables_QuantumTower/Prefab_NOM_DockingTractorBeam",
+				"position": {
+					"x": -493.3045,
+					"y": -8.7003,
+					"z": -78.9565
+				},
+				"rotation": {
+					"x": 350.294,
+					"y": 350.7423,
+					"z": 91.0115
+				}
+			},
+			{ // Some wall, a doorway, some floor
+				"path": "CaveTwin_Body/Sector_CaveTwin/Sector_SouthHemisphere/Sector_GravityCannon/Geometry_GravityCannon/GravityCannon SecretEntrance",
+				"position": {
+					"x": -498.1373,
+					"y": -22.83784,
+					"z": -36.57359
+				},
+				"rotation": {
+					"x": 307.168,
+					"y": 179.2583,
+					"z": 265.6642
+				}
+			},
+			{ // Stairase with some broken floor at the top
+				"path": "BrittleHollow_Body/Sector_BH/Sector Cannon Path/Fragment CannonPath_3/Core_CannonPath_3/Geometry_Core_CannonPath_3/Architecture_CannonPath_3",
+				"position": {
+					"x": -503.4521,
+					"y": -36.1162,
+					"z": -11.9463
+				},
+				"rotation": {
+					"x": 307.168,
+					"y": 179.2583,
+					"z": 265.6642
+				}
+			},
+			{ // Wall with mesh window for shooting scout through
+				"path": "CaveTwin_Body/Sector_CaveTwin/Sector_SouthHemisphere/Sector_SouthUnderground/Sector_City/Sector_EyeDistrict/Interactables_EyeDistrict/Prefab_NOM_ProbePortal_Wall",
+				"position": {
+					"x": -496.9085,
+					"y": -40.00455,
+					"z": -38.49079
+				},
+				"rotation": {
+					"x": 282.8882,
+					"y": 196.1065,
+					"z": 248.9793
+				}
+			},
+			{ // Mesh for shooting scout through, huge
+				"path": "CaveTwin_Body/Sector_CaveTwin/Interactables_CaveTwin/TLE_ProbeWindow",
+				"position": {
+					"x": -496.5021,
+					"y": -35.03075,
+					"z": -47.52362
+				},
+				"rotation": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			},
+			{ // EYE SYMBOL WINDOW
+				"path": "CaveTwin_Body/Sector_CaveTwin/Interactables_CaveTwin/Structure_NOM_EyeSymbol",
+				"position": {
+					"x": -501.4051,
+					"y": -7.1358,
+					"z": -35.7835
+				},
+				"rotation": {
+					"x": 6.1628,
+					"y": 355.8502,
+					"z": 90.819
+				}
+			},
+			{ // AIRLOCK
+				"path": "WhiteholeStation_Body/Sector_WhiteholeStation/Interactibles_WhiteholeStation/Prefab_NOM_Airlock",
+				"position": {
+					"x": -500,
+					"y": 13.25474,
+					"z": -53.41313
+				},
+				"rotation": {
+					"x": 56.65459,
+					"y": 351.5557,
+					"z": 87.23574
+				}
+			},
+			{ // ATP data storage
+				"path": "TimeLoopRing_Body/Interactibles_TimeLoopRing/MaskPlatform/",
+				"position": {
+					"x": -492.1901,
+					"y": -65.5233,
+					"z": -45.3104
+				},
+				"rotation": {
+					"x": 343.4267,
+					"y": 177.0099,
+					"z": 262.1415
+				}
+			},
+			{ // SOLANUM
+				"path": "QuantumMoon_Body/Sector_QuantumMoon/State_EYE/Interactables_EYEState/ConversationPivot/Character_NOM_Solanum/Nomai_ANIM_SkyWatching_Idle",
+				"position": {
+					"x": -497.4817,
+					"y": -16.74448,
+					"z": -47.23923
+				},
+				"rotation": {
+					"x": 278.8101,
+					"y": 187.0614,
+					"z": 257.3699
+				}
+			},
+			{ // MASK/HEADGEAR, painted
+				"path": "Comet_Body/Prefab_NOM_Shuttle/Sector_NomaiShuttleInterior/Props_NomaiShuttleInterior/Hanging Suit/Props_NOM_Mask_GearNew",
+				"position": {
+					"x": -497.6292,
+					"y": -16.997,
+					"z": -49.0439
+				},
+				"rotation": {
+					"x": 274.8354,
+					"y": 198.0755,
+					"z": 246.2169
+				}
+			},
+			{ // MASK/HEADGEAR, Solanum's
+				"path": "Comet_Body/Prefab_NOM_Shuttle/Sector_NomaiShuttleInterior/Props_NomaiShuttleInterior/Hanging Suit/Character_NOM_Nomai_v2/Props_NOM_Mask_GearNew",
+				"position": {
+					"x": -497.4785,
+					"y": -17.1127,
+					"z": -50.5318
+				},
+				"rotation": {
+					"x": 274.8354,
+					"y": 198.0755,
+					"z": 246.2169
+				}
+			},
+			{ // CORPSE, on side
+				"path": "TowerTwin_Body/Sector_TowerTwin/Sector_Tower_GD/Props_Tower_GD/Prefab_NOM_Dead_Suit_GroundB",
+				"position": {
+					"x": -496.9362,
+					"y": -18.51319,
+					"z": -52.07404
+				},
+				"rotation": {
+					"x": 28.53425,
+					"y": 355.1722,
+					"z": 92.41549
+				}
+			},
+			{ // CORPSE, Solanum, on ass
+				"path": "QuantumMoon_Body/Sector_QuantumMoon/State_TH/Interactables_THState/QuantumDeadNomaiSuit/State_4/Prefab_NOM_Dead_Suit_GroundC",
+				"position": {
+					"x": -497.1639,
+					"y": -19.96108,
+					"z": -49.29115
+				},
+				"rotation": {
+					"x": 292.9484,
+					"y": 179.7525,
+					"z": 264.1232
+				}
+			},
+			{ // CORPSE, pre-crash suit/Nomai Grave, falling pose
+				"path": "DeadNomai_Body/Prefab_NOM_Dead_Suit_Advanced_FloatC", // Sometimes? might be prefixed with DB_EscapePodDimension_Body/Sector_EscapePodDimension/Interactables_EscapePodDimension/DynamicProps_EscapePodDimension/
+				"position": {
+					"x": -497.3188,
+					"y": -21.19691,
+					"z": -47.16712
+				},
+				"rotation": {
+					"x": 297.8382,
+					"y": 179.1908,
+					"z": 264.7913
+				}
+			},
+			{ // Gravestone
+				"path": "TimberHearth_Body/Sector_TH/Sector_Village/Sector_VillageCemetery/Props_VillageCemetery/OtherComponentsGroup/HEA_Backer_Tombstone/Props_HEA_TombStone",
+				"position": {
+					"x": -496.9786,
+					"y": -20.73798,
+					"z": -50.81506
+				},
+				"rotation": {
+					"x": 66.71198,
+					"y": 168.6275,
+					"z": 263.9781
+				}
+			}
+		],
+		"gravityCannons": [
+			{ // GRAVITY CANNON
+				"shuttleID": "LeeSpork.PropReskinnerTestSystem.TestPlanet",
+				"position": {
+					"x": -500,
+					"y": 0,
+					"z": 0
+				},
+				"rotation": {
+					"x": 180,
+					"y": 0,
+					"z": 90
+				},
+				"controls": { // GRAV CANN CONTROLS
+					"position": {
+						"x": -517.85,
+						"y": 0,
+						"z": -18
+					},
+					"rotation": {
+						"x": 180,
+						"y": 0,
+						"z": 90
+					}
+				},
+				"computer": { // GRAV CANN COMPUTER
+					"position": {
+						"x": -517.85,
+						"y": 0,
+						"z": -22
+					},
+					"rotation": {
+						"x": 180,
+						"y": 0,
+						"z": 90
+					}
+				}
+			}
+		],
+		"shuttles": [
+			{ // SHUTTLE
+				"id": "LeeSpork.PropReskinnerTestSystem.TestPlanet",
+				"position": {
+					"x": -494.8234,
+					"y": 17.17402,
+					"z": -69.67686
+				},
+				"rotation": {
+					"x": 77.77872,
+					"y": 181.1147,
+					"z": 279.338
+				}
+			}
+		],
+		"translatorText": [
+			{ // WHITEBOARD
+				"type": "whiteboard",
+				"xmlFile": "planets/TestSystem/test_nomai_text.xml",
+				"position": {
+					"x": -498.4279,
+					"y": 12.00432,
+					"z": -37.75657
+				},
+				"rotation": {
+					"x": 31.4449,
+					"y": 176.5095,
+					"z": 271.6126
+				}
+			}
+		],
+		"campfires": [
+			{
+				"position": {
+					"x": -497.3719,
+					"y": 0.2473986,
+					"z": -51.1973
+				},
+				"rotation": {
+					"x": 28.82484,
+					"y": 354.1073,
+					"z": 89.96764
+				}
+			}
+		],
+		"fuelTanks": [
+			{
+				"type": "nomaiTank",
+				"position": {
+					"x": -497.5997,
+					"y": 0.6579601,
+					"z": -48.92964
+				},
+				"rotation": {
+					"x": 56.423,
+					"y": 354.2705,
+					"z": 89.86367
+				}
+			}
+		],
+		"warpTransmitters": [
+			{ // WARP PAD BLACK
+				"position": {
+					"x": -498.416,
+					"y": 37.09734,
+					"z": -14.3272
+				},
+				"rotation": {
+					"x": 45.83854,
+					"y": 182.7472,
+					"z": 276.1134
+				}
+			}
+		],
+		"warpReceivers": [
+			{ // WARP PAD WHITE, detailed
+				"detailed": true,
+				"position": {
+					"x": -497.3358,
+					"y": -51.19996,
+					"z": -5.97311
+				},
+				"rotation": {
+					"x": 311.4756,
+					"y": 185.9994,
+					"z": 261.1057
+				},
+				"computer": { // WARP PAD COMPUTER
+					"position": {
+						"x": -498.1015,
+						"y": -41.601,
+						"z": -12.81591
+					},
+					"rotation": {
+						"x": 293.2731,
+						"y": 347.3331,
+						"z": 102.1562
+					}
+				}
+			}
+		],
+		"remotes": [
+			{
+				"id": "LeeSpork.PropReskinnerTestSystem.TestPlanet.NomaiArea",
+				"platform": { // PROJECTION POOL
+					"position": {
+						"x": -496,
+						"y": -24.92907,
+						"z": -63.3666
+					},
+					"rotation": {
+						"x": 47.01972,
+						"y": 169.6392,
+						"z": 265.806
+					}
+				},
+				"whiteboard": { // REMOTE WHIETBOARD
+					"position": {
+						"x": -494.7053,
+						"y": -34.082,
+						"z": -63.7469
+					},
+					"rotation": {
+						"x": 273.6806,
+						"y": 254.6285,
+						"z": 188.0259
+					}
+				}
+			}
+		]
+	},
+	"extras": {
+		"PropReskinner": {
+			"preCrashNomaiClean": [
+				"Sector"
+			]
+		}
+	}
+}
