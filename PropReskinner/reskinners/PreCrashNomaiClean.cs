@@ -14,7 +14,8 @@ namespace PropReskinner.reskinners
         private Material base_mat, metal_mat, fancy_mat, glowing_mat;
         private Texture base_albedo, base_metallicGloss, base_bump,
             metal_albedo, metal_metallicGloss, metal_bump,
-            fancy_albedo, fancy_metallicGloss, fancy_bump;
+            fancy_albedo, fancy_metallicGloss, fancy_bump,
+            glowing_albedo, glowing_metallicGloss, glowing_bump, glowing_emission;
 
         public void ReskinProp(GameObject prop, PropReskinnerStyles style, PaintedDetailsMode nomaiPaintDetails)
         {
@@ -40,7 +41,11 @@ namespace PropReskinner.reskinners
                     fancy_bump = PropReskinner.Instance.replacementMaterialManager.silverPorcelain_bump;
 
                     glowing_mat = PropReskinner.Instance.replacementMaterialManager.silverGlow;
-                    
+                    glowing_albedo = PropReskinner.Instance.replacementMaterialManager.silverGlow_albedo;
+                    glowing_metallicGloss = PropReskinner.Instance.replacementMaterialManager.silverGlow_metallicGloss;
+                    glowing_bump = PropReskinner.Instance.replacementMaterialManager.silverGlow_bump;
+                    glowing_emission = PropReskinner.Instance.replacementMaterialManager.silverGlow_emission;
+
                     break;
             }
 
@@ -60,21 +65,32 @@ namespace PropReskinner.reskinners
         {
             if (material.name.Contains("Structure_NOM_SandStone_mat")
                 || material.name.Contains("Structure_NOM_SandStone_Dark_mat")
-                || material.name.Contains("Structure_NOM_Grooves_mat")
-                || material.name.Contains("Structure_NOM_Floor_mat")
-                || material.name.Contains("Structure_NOM_WallInside_mat")
+                || material.name.Contains("Structure_NOM_WallInside_mat") // Detail: stained red, very worn.
                 || material.name.Contains("Structure_NOM_Ceiling_mat")
-                || material.name.Contains("Structure_NOM_WallOutside_mat")
-                || material.name.Contains("Structure_NOM_Shuttle_mat")
-                || material.name.Contains("Props_NOM_SmallTractorBeam_mat")
-                || material.name.Contains("Props_NOM_LargeTractorBeam_mat")
-                || material.name.Contains("Structure_NOM_PorcelainBroken_mat")
+                || material.name.Contains("Structure_NOM_Shuttle_mat") // TODO
+                || material.name.Contains("Props_NOM_SmallTractorBeam_mat") // Detail1: TrimPattern. Detail2: Grooves_Red. Detail3: also Grooves_Red.
+                || material.name.Contains("Props_NOM_LargeTractorBeam_mat") // TODO
+                || material.name.Contains("Structure_NOM_PorcelainBroken_mat") // Masks of Nomai Grave guys
                 || material.name.Contains("Structure_NOM_Spiral_Red_mat") // Toy ship
                 || material.name.Contains("Structure_NOM_Spiral_Green_mat") // Seen on Ash Twin
+                || material.name.Contains("Structure_NOM_Spiral_Yellow_mat") // Seen in Sun Station. Actually more of a tangerine orange.
                 || material.name.Contains("ObservatoryInterior_HEA_VillagePlanks_mat")
                 )
             {
                 return base_mat;
+            }
+            else if (material.name.Contains("Structure_NOM_TrimPatternLines_mat")
+                || material.name.Contains("Structure_NOM_Grooves_mat") // Detail: zigzag/diamond. Seen on stairs.
+                || material.name.Contains("Props_NOM_Computer_mat")
+                || material.name.Contains("Structure_NOM_WhiteBoardTile_mat") // Nomai staff keypad
+                || material.name.Contains("Structure_NOM_Zigzag_mat") // sandstone but with glass texture as detail ? Rare, seen on Ash Twin, e.g. Ember Twin tower's tractor beam.
+                || material.name.Contains("Structure_NOM_Spiral_mat") // 
+                )
+            {
+                // Replace main texture only
+                material.mainTexture = base_albedo;
+                material.SetTexture("_MetallicGlossMap", base_metallicGloss);
+                material.SetTexture("_BumpMap", base_bump);
             }
             if (material.name.Contains("Props_NOM_MaskPainted_mat") // Texture has quarters red, white, turquoise-green, yellow
                 )
@@ -85,23 +101,13 @@ namespace PropReskinner.reskinners
                         return material;
                     case PaintedDetailsMode.Removed:
                         return base_mat;
-                    case PaintedDetailsMode.AltTexture:
+                    case PaintedDetailsMode.AltMaterial:
                         return fancy_mat;
                 }
             }
-            else if (material.name.Contains("Structure_NOM_TrimPatternLines_mat")
-                || material.name.Contains("Props_NOM_Computer_mat")
-                || material.name.Contains("Structure_NOM_WhiteBoardTile_mat") // Nomai staff keypad
-                || material.name.Contains("Structure_NOM_Zigzag_mat") // sandstone but with glass texture as detail ? Rare, seen on Ash Twin, e.g. Ember Twin tower's tractor beam.
-                || material.name.Contains("Structure_NOM_Spiral_mat") // 
-                )
-            {
-                // Replace main texture only
-                material.mainTexture = base_albedo;
-                material.SetTexture("_MetallicGlossMap", base_metallicGloss);
-            }
             else if (material.name.Contains("Structure_NOM_PropTile_Color_mat") // Diamonds pattern, yellow and blueish. Used for: SimpleChair (aka bench); Container (aka box with spout).
                 || material.name.Contains("Structure_NOM_HexagonTile_mat") // teal and yellow diamonds with space. Used on bed.
+                || material.name.Contains("Structure_NOM_WallOutside_mat") // Detail: diagonal square carvings, worn.
                 )
             {
                 //_DetailMainTex _DetailMetallicGlossMap _DetailBumpMap
@@ -116,7 +122,24 @@ namespace PropReskinner.reskinners
                         return material;
                     case PaintedDetailsMode.Removed:
                         return base_mat;
-                    case PaintedDetailsMode.AltTexture:
+                    case PaintedDetailsMode.AltMaterial:
+                        return fancy_mat;
+                }
+            }
+            else if (material.name.Contains("Structure_NOM_Zigzag_Color_mat")
+                )
+            {
+                switch (nomaiPaintDetails)
+                {
+                    case PaintedDetailsMode.Faded:
+                        // Replace main texture only
+                        material.mainTexture = base_albedo;
+                        material.SetTexture("_MetallicGlossMap", base_metallicGloss);
+                        material.SetTexture("_BumpMap", base_bump);
+                        return material;
+                    case PaintedDetailsMode.Removed:
+                        return base_mat; // TODO would be nice to still have zigzag bumpmap or something
+                    case PaintedDetailsMode.AltMaterial:
                         return fancy_mat;
                 }
             }
@@ -137,7 +160,7 @@ namespace PropReskinner.reskinners
                         return material;
                     case PaintedDetailsMode.Removed:
                         return base_mat;
-                    case PaintedDetailsMode.AltTexture:
+                    case PaintedDetailsMode.AltMaterial:
                         return metal_mat;
                 }
             }
@@ -197,7 +220,7 @@ namespace PropReskinner.reskinners
                         material.SetTexture("_Detail3MetallicGlossMap", base_metallicGloss);
                         material.SetTexture("_Detail3BumpMap", base_bump);
                         break;
-                    case PaintedDetailsMode.AltTexture:
+                    case PaintedDetailsMode.AltMaterial:
                         material.SetTexture("_Detail3MainTex", fancy_albedo);
                         material.SetTexture("_Detail3MetallicGlossMap", fancy_metallicGloss);
                         material.SetTexture("_Detail3BumpMap", fancy_bump);
@@ -206,8 +229,8 @@ namespace PropReskinner.reskinners
 
                 // _Detail4MainTex _Detail4MetallicGlossMap _Detail4BumpMap : OrbitalProbeCannon_NOM_Diamonds_d
             }
-            else if (material.name.Contains("Structure_NOM_WovenGrooves_mat") // floor tiles where some are painted. Seen on Big bridges (BH, TT, ATP)
-                || material.name.Contains("Structure_NOM_StarHexagon_mat") // non-gravity floors
+            else if (material.name.Contains("Structure_NOM_Floor_mat")  // floor tiles where some are painted.
+                || material.name.Contains("Structure_NOM_WovenGrooves_mat") // Version Seen on Big bridges (BH, TT, ATP)
                 )
             {
                 switch (nomaiPaintDetails)
@@ -218,7 +241,7 @@ namespace PropReskinner.reskinners
                         material.SetTexture("_MetallicGlossMap", base_metallicGloss);
                         material.SetTexture("_BumpMap", base_bump);
                         return material;
-                    case PaintedDetailsMode.AltTexture:
+                    case PaintedDetailsMode.AltMaterial:
                         material.SetTexture("_DetailMainTex", fancy_albedo);
                         material.SetTexture("_DetailMetallicGlossMap", fancy_metallicGloss);
                         material.SetTexture("_DetailBumpMap", fancy_bump);
@@ -227,7 +250,28 @@ namespace PropReskinner.reskinners
                         return base_mat;
                 }
             }
-            else if (material.name.Contains("Structure_NOM_StarHexagon_Glow_mat")) // Gravity floors
+            else if (material.name.Contains("Structure_NOM_StarHexagon_mat") // gravity floor off
+                || material.name.Contains("IntactModule_NOM_HologramFloorBroken_mat") // gravity floor but different off
+                )
+            {
+                switch (nomaiPaintDetails)
+                {
+                    case PaintedDetailsMode.Faded:
+                        // Replace main texture only
+                        material.mainTexture = base_albedo;
+                        material.SetTexture("_MetallicGlossMap", base_metallicGloss);
+                        material.SetTexture("_BumpMap", base_bump);
+                        return material;
+                    case PaintedDetailsMode.AltMaterial:
+                        return fancy_mat; // Assuming it looks like glowing_mat but not glowing
+                    case PaintedDetailsMode.Removed:
+                        return base_mat;
+                }
+            }
+            else if (material.name.Contains("Structure_NOM_StarHexagon_Glow_mat") // Gravity floors
+                || material.name.Contains("IntactModule_NOM_RemoteViewerFloor_mat") // very similar if not the same as above
+                || material.name.Contains("IntactModule_NOM_HologramFloor_mat") // Gravity floor but different
+                )
             {
                 switch (nomaiPaintDetails)
                 {
@@ -239,12 +283,8 @@ namespace PropReskinner.reskinners
                         return material;
                     case PaintedDetailsMode.Removed:
                         return base_mat;
-                    case PaintedDetailsMode.AltTexture:
-                        //return glowing_mat;
-                        material.mainTexture = base_albedo;
-                        material.SetTexture("_MetallicGlossMap", glowing_mat.GetTexture("_MetallicGlossMap"));
-                        material.SetTexture("_BumpMap", glowing_mat.GetTexture("_BumpMap"));
-                        return material;
+                    case PaintedDetailsMode.AltMaterial:
+                        return glowing_mat;
                 }
                 //material.SetTexture("_DetailMainTex", null);
                 //material.SetTexture("_DetailMetallicGlossMap", null);
@@ -269,7 +309,7 @@ namespace PropReskinner.reskinners
                         return material;
                     case PaintedDetailsMode.Removed:
                         return base_mat;
-                    case PaintedDetailsMode.AltTexture:
+                    case PaintedDetailsMode.AltMaterial:
                         return fancy_mat;
                 }
                 // _DetailAlbedoMap _DetailNormalMap
@@ -283,7 +323,7 @@ namespace PropReskinner.reskinners
                 return metal_mat;
             }
             else if (material.name.Contains("Structure_NOM_SandStone_Darker_mat")
-                || material.name.Contains("Structure_NOM_Grooves_Red_mat") // SmallBowl
+                || material.name.Contains("Structure_NOM_Grooves_Red_mat") // Stairs found on StatueIsland, SmallBowl
                 || material.name.Contains("Props_NOM_Mask_Trim_mat") // Post-crash guys have lines connected with circles. Pre-crash guys just have SilverPorcelain material.
                 )
             {
@@ -334,6 +374,7 @@ namespace PropReskinner.reskinners
             }
 
             return material;
+            // A more sensible way to do all of this could have been to just compare the textures/their names and replace them on a texture by texture basis, but oh well whatever I like this way too
         }
     }
 }

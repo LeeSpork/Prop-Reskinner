@@ -653,7 +653,7 @@
 		"PropReskinner": [
 			{
 				"style": "PreCrashNomai",
-				"paintedDetails": "Removed", // "Faded" (default), "Removed", or "AltTexture".
+				"paintedDetails": "Removed", // "AltMaterial", "Faded", or "Removed".
 				"props": [
 					"Sector/"
 				]

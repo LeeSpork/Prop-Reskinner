@@ -1,0 +1,36 @@
+﻿namespace PropReskinner
+{
+    public class PropReskinnerInfo
+    {
+        /// <summary>
+        /// Determines what materils & textures the props get reskinned to.
+        /// </summary>
+        public PropReskinnerStyles style;
+
+        /// <summary>
+        /// How are Nomai painted detail textures handled?
+        /// `Faded` : keeps original paint details.
+        /// `Removed` : washes the paint off.
+        /// `AltMaterial` : replaces painted surfaces with detailed metal, similar to the props from Mod Jam 3 & 5's Starship Community and Central Station.
+        /// </summary>
+        public PaintedDetailsMode paintedDetails;
+
+        /// <summary>
+        /// Paths to props that you want to get reskinned. Will reskin any children as well.
+        /// </summary>
+        public string[] props;
+    }
+
+    public enum PropReskinnerStyles
+    {
+        PreCrashNomai,
+    }
+
+    public enum PaintedDetailsMode
+    {
+        AltMaterial,
+        Faded,
+        Removed,
+        // Restored,
+    }
+}

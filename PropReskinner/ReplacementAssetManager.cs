@@ -15,7 +15,7 @@ namespace PropReskinner
             dreamWood, dreamWoodLight,
             nomaiAdvancedSuitDirty, nomaiAdvancedSuitDirtyR;
 
-        public Texture porcelain_albedo, porcelain_metallicGloss, silver_albedo, silver_metallicGloss, silver_bump, silverPorcelain_albedo, silverPorcelain_metallicGloss, silverPorcelain_bump, silverGlow_emission,
+        public Texture porcelain_albedo, porcelain_metallicGloss, silver_albedo, silver_metallicGloss, silver_bump, silverPorcelain_albedo, silverPorcelain_metallicGloss, silverPorcelain_bump, silverGlow_albedo, silverGlow_metallicGloss, silverGlow_bump, silverGlow_emission,
             dreamWood_albedo, dreamWood_metallicGloss, dreamWood_bump, dreamWoodLight_albedo, dreamWoodLight_metallicGloss, dreamWoodLight_bump;
 
         public ReplacementAssetManager()
@@ -36,12 +36,15 @@ namespace PropReskinner
 
             porcelain_albedo              = porcelain.GetTexture("_DetailAlbedoMap");
             porcelain_metallicGloss       = porcelain.GetTexture("_MetallicGlossMap");
-            silverPorcelain_albedo        = silverPorcelain.GetTexture("_DetailAlbedoMap");
-            silverPorcelain_metallicGloss = silverPorcelain.GetTexture("_MetallicGlossMap");
-            silverPorcelain_bump          = silverPorcelain.GetTexture("_BumpMap");
             silver_albedo                 = silver.GetTexture("_DetailAlbedoMap");
             silver_metallicGloss          = silver.GetTexture("_MetallicGlossMap");
             silver_bump                   = silver.GetTexture("_BumpMap");
+            silverPorcelain_albedo        = silverPorcelain.GetTexture("_DetailAlbedoMap");
+            silverPorcelain_metallicGloss = silverPorcelain.GetTexture("_MetallicGlossMap");
+            silverPorcelain_bump          = silverPorcelain.GetTexture("_BumpMap");
+            silverGlow_albedo             = silverGlow.GetTexture("_DetailAlbedoMap"); // Does this material have all these?
+            silverGlow_metallicGloss      = silverGlow.GetTexture("_MetallicGlossMap");
+            silverGlow_bump               = silverGlow.GetTexture("_BumpMap");
             silverGlow_emission           = silverGlow.GetTexture("_EmissionMap");
 
             dreamWoodLight_albedo         = dreamWood.mainTexture;
