@@ -7,23 +7,37 @@ using UnityEngine;
 
 namespace PropReskinner
 {
+    public enum PropReskinnerStyles
+    {
+        PreCrashNomai,
+    }
+
+    public enum PaintedDetailsMode
+    {
+        Faded = 0,
+        Removed,
+        AltTexture,
+    }
+    
     public class PropReskinnerInfo
     {
         /// <summary>
-        /// Paths to props that you want to get reskinned to the porcelain and silver metal materals of pre-crash Nomai structures (the vessel and escape pods).
-        /// Will reskin any children as well.
+        /// Determines what materils & textures the props get reskinned to.
         /// </summary>
-        public string[] preCrashNomaiClean;
+        public PropReskinnerStyles style;
 
         /// <summary>
-        /// Dusty wood of the Stranger (aka RingWorld) (Requires Echoes of the Eye DLC)
+        /// How are Nomai painted detail textures handled?
+        /// `Faded` : keeps original paint details.
+        /// `Removed` : washes the paint off.
+        /// `AltTexture` : replaces painted surfaces with detailed metal, similar to the props from Mod Jam 3 & 5's Starship Community and Central Station.
         /// </summary>
-        //public string[] stranger;//TODO: and metal?
+        public PaintedDetailsMode paintedDetails;
 
         /// <summary>
-        /// Clean treated wood of the DreamWorld (Requires Echoes of the Eye DLC)
+        /// Paths to props that you want to get reskinned. Will reskin any children as well.
         /// </summary>
-        public string[] dreamWorld;
+        public string[] props;
     }
 
     public class PropReskinner : ModBehaviour
@@ -43,7 +57,9 @@ namespace PropReskinner
         public void Start()
         {
             // Starting here, you'll have access to OWML's mod helper.
-            ModHelper.Console.WriteLine($"Thank you for using {nameof(PropReskinner)}.", MessageType.Success);
+            ModHelper.Console.WriteLine($"Thank you for using {nameof(PropReskinner)}", MessageType.Success);
+            // Mod {nameof(PropReskinner)} loaded!
+            // I will reskin your children. // Rare
 
             // Get the New Horizons API and load configs
             NewHorizons = ModHelper.Interaction.TryGetModApi<INewHorizons>("xen.NewHorizons");
@@ -59,25 +75,21 @@ namespace PropReskinner
             // Add extention to New Horizons planet config
             NewHorizons.GetBodyLoadedEvent().AddListener((name) =>
             {
-                ModHelper.Console.WriteLine($"Body {name} loaded!", MessageType.Info);
-                var info = NewHorizons.QueryBody<PropReskinnerInfo>(name, "$.extras.PropReskinner");
-                if (info != null)
-                {
-                    var planet = NewHorizons.GetPlanet(name);
-                    
-                    ModHelper.Console.WriteLine("Reskinning stuff!", MessageType.Info);
+                //ModHelper.Console.WriteLine($"Body {name} loaded!", MessageType.Info);
+                var infos = NewHorizons.QueryBody<PropReskinnerInfo[]>(name, "$.extras.PropReskinner");
 
-                    foreach (string path in info.preCrashNomaiClean)
+                if (infos == null) return;
+
+                var planet = NewHorizons.GetPlanet(name);
+                ModHelper.Console.WriteLine($"Reskinning stuff on {name}", MessageType.Info);
+
+                foreach (PropReskinnerInfo info in infos)
+                {
+                    foreach (string path in info.props)
                     {
                         var prop = planet.transform.Find(path).gameObject;
-                        preCrashNomaiClean.ReskinProp(prop);
+                        preCrashNomaiClean.ReskinProp(prop, info.style, info.paintedDetails);
                     }
-
-                    //foreach (string path in info.dreamWorld)
-                    //{
-                    //    var prop = planet.transform.Find(path).gameObject;
-                    //    dreamWorld.ReskinProp(prop);
-                    //}
                 }
             });
         }

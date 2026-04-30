@@ -522,9 +522,9 @@
 			{ // SHUTTLE
 				"id": "LeeSpork.PropReskinnerTestSystem.TestPlanet",
 				"position": {
-					"x": -494.8234,
-					"y": 17.17402,
-					"z": -69.67686
+					"x": -495,
+					"y": 18,
+					"z": -70
 				},
 				"rotation": {
 					"x": 77.77872,
@@ -650,10 +650,14 @@
 		]
 	},
 	"extras": {
-		"PropReskinner": {
-			"preCrashNomaiClean": [
-				"Sector"
-			]
-		}
+		"PropReskinner": [
+			{
+				"style": "PreCrashNomai",
+				"paintedDetails": "Removed", // "Faded" (default), "Removed", or "AltTexture".
+				"props": [
+					"Sector/"
+				]
+			}
+		]
 	}
 }

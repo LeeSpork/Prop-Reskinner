@@ -15,10 +15,13 @@ namespace PropReskinner
             dreamWood, dreamWoodLight,
             nomaiAdvancedSuitDirty, nomaiAdvancedSuitDirtyR;
 
-        public Texture porcelain_albedo, porcelain_metallicGloss, silverPorcelain_albedo, silverPorcelain_metallicGloss, silverPorcelain_bump, silverGlow_emission,
+        public Texture porcelain_albedo, porcelain_metallicGloss, silver_albedo, silver_metallicGloss, silver_bump, silverPorcelain_albedo, silverPorcelain_metallicGloss, silverPorcelain_bump, silverGlow_emission,
             dreamWood_albedo, dreamWood_metallicGloss, dreamWood_bump, dreamWoodLight_albedo, dreamWoodLight_metallicGloss, dreamWoodLight_bump;
 
-        public ReplacementAssetManager() {
+        public ReplacementAssetManager()
+        {
+            PropReskinner.Instance.ModHelper.Console.WriteLine("Getting replacement materials and textures.", MessageType.Info);
+
             porcelain               = Resources.FindObjectsOfTypeAll<Material>().First(x => x.name.Contains("Structure_NOM_PorcelainClean_mat"));
             silver                  = Resources.FindObjectsOfTypeAll<Material>().First(x => x.name.Contains("Structure_NOM_Silver_mat"));
             silverPorcelain         = Resources.FindObjectsOfTypeAll<Material>().First(x => x.name.Contains("Structure_NOM_SilverPorcelain_mat"));
@@ -36,16 +39,17 @@ namespace PropReskinner
             silverPorcelain_albedo        = silverPorcelain.GetTexture("_DetailAlbedoMap");
             silverPorcelain_metallicGloss = silverPorcelain.GetTexture("_MetallicGlossMap");
             silverPorcelain_bump          = silverPorcelain.GetTexture("_BumpMap");
+            silver_albedo                 = silver.GetTexture("_DetailAlbedoMap");
+            silver_metallicGloss          = silver.GetTexture("_MetallicGlossMap");
+            silver_bump                   = silver.GetTexture("_BumpMap");
             silverGlow_emission           = silverGlow.GetTexture("_EmissionMap");
 
-            dreamWoodLight_albedo           = dreamWood.mainTexture;
-            dreamWoodLight_metallicGloss    = dreamWood.GetTexture("_MetallicGlossMap");
-            dreamWoodLight_bump             = dreamWood.GetTexture("_BumpMap");
-            dreamWoodLight_albedo           = dreamWoodLight.mainTexture;
-            dreamWoodLight_metallicGloss    = dreamWoodLight.GetTexture("_MetallicGlossMap");
-            dreamWoodLight_bump             = dreamWoodLight.GetTexture("_BumpMap");
-
-            PropReskinner.Instance.ModHelper.Console.WriteLine("Got replacement materials!", MessageType.Success);
+            dreamWoodLight_albedo         = dreamWood.mainTexture;
+            dreamWoodLight_metallicGloss  = dreamWood.GetTexture("_MetallicGlossMap");
+            dreamWoodLight_bump           = dreamWood.GetTexture("_BumpMap");
+            dreamWoodLight_albedo         = dreamWoodLight.mainTexture;
+            dreamWoodLight_metallicGloss  = dreamWoodLight.GetTexture("_MetallicGlossMap");
+            dreamWoodLight_bump           = dreamWoodLight.GetTexture("_BumpMap");
         }
     }
 }
