@@ -1,9 +1,23 @@
 ﻿namespace PropReskinner
 {
+    public enum PropReskinnerStyles
+    {
+        Default = 0,
+        PreCrashNomai,
+    }
+
+    public enum PaintedDetailsMode
+    {
+        AltMaterial,
+        Faded,
+        Removed,
+        // Restored,
+    }
+
     public class PropReskinnerInfo
     {
         /// <summary>
-        /// Determines what materils & textures the props get reskinned to.
+        /// Determines what materials & textures the props get reskinned to.
         /// </summary>
         public PropReskinnerStyles style;
 
@@ -19,18 +33,5 @@
         /// Paths to props that you want to get reskinned. Will reskin any children as well.
         /// </summary>
         public string[] props;
-    }
-
-    public enum PropReskinnerStyles
-    {
-        PreCrashNomai,
-    }
-
-    public enum PaintedDetailsMode
-    {
-        AltMaterial,
-        Faded,
-        Removed,
-        // Restored,
     }
 }

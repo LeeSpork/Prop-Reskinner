@@ -88,6 +88,9 @@
 	},
 	"Props": {
 		"details": [
+			{
+				"rename": "NomaiTestStuff"
+			},
 			{ // BENCH
 				"path": "OrbitalProbeCannon_Body/Sector_OrbitalProbeCannon/Sector_Module_Broken/Props_Module_Broken/Prefab_NOM_SimpleChair_NoSkeleton",
 				"position": {
@@ -99,7 +102,9 @@
 					"x": 34.16037,
 					"y": 175.5879,
 					"z": 271.2605
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // TABLE
 				"path": "BrittleHollow_Body/Sector_BH/Sector_NorthHemisphere/Sector_NorthPole/Sector_HangingCity/Sector_HangingCity_BlackHoleForge/BlackHoleForgePivot/Props_BlackHoleForge/Props_NOM_Table",
@@ -112,7 +117,9 @@
 					"x": 51.76431,
 					"y": 353.5724,
 					"z": 88.13316
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // SHELF thin
 				"path": "WhiteholeStation_Body/Sector_WhiteholeStation/Props_WhiteHoleStation/Prefab_NOM_Shelf",
@@ -125,7 +132,9 @@
 					"x": 37.40865,
 					"y": 176.531,
 					"z": 272.028
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // STAFF
 				"path": "BrittleHollow_Body/Sector_BH/Sector_NorthHemisphere/Sector_NorthPole/Sector_HangingCity/Sector_HangingCity_BlackHoleForge/BlackHoleForgePivot/Props_BlackHoleForge/Prefab_NOM_Staff",
@@ -138,7 +147,9 @@
 					"x": 347.3643,
 					"y": 174.8583,
 					"z": 271.7047
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // CONTAINER w/ spout
 				"path": "Comet_Body/Sector_CO/Sector_CometInterior/Props_CometInterior/Prefab_NOM_Container",
@@ -151,7 +162,9 @@
 					"x": 349.4744,
 					"y": 174.6148,
 					"z": 271.4247
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // BOX small
 				"path": "Comet_Body/Sector_CO/Sector_CometInterior/Props_CometInterior/Prefab_NOM_Box",
@@ -164,7 +177,9 @@
 					"x": 8.099542,
 					"y": 175.0368,
 					"z": 271.3122
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // BOX small broken
 				"path": "Comet_Body/Sector_CO/Sector_CometInterior/Props_CometInterior/Prefab_NOM_BoxBroken",
@@ -177,7 +192,9 @@
 					"x": 346.9147,
 					"y": 355.3075,
 					"z": 88.81394
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // BOWL small broken
 				"path": "CaveTwin_Body/Sector_CaveTwin/Sector_SouthHemisphere/Sector_SouthUnderground/Sector_City/Sector_EyeShrine/Props_EyeShrine/Prefab_NOM_SmallBowl (15)",
@@ -190,7 +207,9 @@
 					"x": 37.73748,
 					"y": 175.9332,
 					"z": 271.4609
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // potted TREE
 				"path": "WhiteholeStation_Body/Sector_WhiteholeStation/Props_WhiteHoleStation/Prefab_NOM_NomaiTree_Var_1",
@@ -203,7 +222,9 @@
 					"x": 27.38604,
 					"y": 176.1989,
 					"z": 272.0197
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // PEDISTAL for statue
 				"path": "GiantsDeep_Body/Sector_GD/Sector_GDInterior/Sector_GDCore/Sector_Module_Sunken/Props_Module_Sunken/Structure_NOM_Column_Base_Square",
@@ -216,7 +237,9 @@
 					"x": 314.0782,
 					"y": 176.3816,
 					"z": 268.8351
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // STATUE w/ open eyes
 				"path": "GiantsDeep_Body/Sector_GD/Sector_GDInterior/Sector_GDCore/Sector_Module_Sunken/Props_Module_Sunken/Prefab_NOM_StatueHead",
@@ -229,7 +252,9 @@
 					"x": 314.0782,
 					"y": 176.3816,
 					"z": 268.8351
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // Vertical board thing
 				"path": "WhiteholeStation_Body/Sector_WhiteholeStation/Interactibles_WhiteholeStation/Prefab_NOM_WhiteHolePetroglyphBoard/Props_NOM_WhiteHolePetroglyphBoard",
@@ -242,7 +267,9 @@
 					"x": 19.20761,
 					"y": 356.091,
 					"z": 91.24268
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // RAILING segment 
 				"path": "BrittleHollow_Body/Sector_BH/Sector Quantum Pole Path/Fragment QuantumPolePath 2/Props_QPP2/Prefab_NOM_Railing",
@@ -255,7 +282,9 @@
 					"x": 13.31369,
 					"y": 176.1368,
 					"z": 271.0208
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // TORCH (which is also a railing post)
 				"path": "CaveTwin_Body/Sector_CaveTwin/Sector_SouthHemisphere/Sector_SouthSurface/Sector_SouthPole/Lighting_SouthPole/Prefab_NOM_Torch",
@@ -268,7 +297,9 @@
 					"x": 13.31369,
 					"y": 176.1368,
 					"z": 271.0208
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // TOYS bundle of 5, no collision
 				"path": "BrittleHollow_Body/Sector_BH/Sector_NorthHemisphere/Sector_NorthPole/Sector_HangingCity/Sector_HangingCity_District1/Props_HangingCity_District1/OtherComponentsGroup/Props_HangingCity_SchoolBuilding/Prefab_NOM_Toys",
@@ -281,7 +312,9 @@
 					"x": -497.815948,
 					"y": 16.46888,
 					"z": -43.68116
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // Ship landing pad with tractor beam
 				"path": "QuantumIsland_Body/Sector_QuantumIsland/Interactables_QuantumTower/Prefab_NOM_DockingTractorBeam",
@@ -294,7 +327,9 @@
 					"x": 350.294,
 					"y": 350.7423,
 					"z": 91.0115
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // Some wall, a doorway, some floor
 				"path": "CaveTwin_Body/Sector_CaveTwin/Sector_SouthHemisphere/Sector_GravityCannon/Geometry_GravityCannon/GravityCannon SecretEntrance",
@@ -307,7 +342,9 @@
 					"x": 307.168,
 					"y": 179.2583,
 					"z": 265.6642
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // Stairase with some broken floor at the top
 				"path": "BrittleHollow_Body/Sector_BH/Sector Cannon Path/Fragment CannonPath_3/Core_CannonPath_3/Geometry_Core_CannonPath_3/Architecture_CannonPath_3",
@@ -320,7 +357,9 @@
 					"x": 307.168,
 					"y": 179.2583,
 					"z": 265.6642
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // Wall with mesh window for shooting scout through
 				"path": "CaveTwin_Body/Sector_CaveTwin/Sector_SouthHemisphere/Sector_SouthUnderground/Sector_City/Sector_EyeDistrict/Interactables_EyeDistrict/Prefab_NOM_ProbePortal_Wall",
@@ -333,7 +372,9 @@
 					"x": 282.8882,
 					"y": 196.1065,
 					"z": 248.9793
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // Mesh for shooting scout through, huge
 				"path": "CaveTwin_Body/Sector_CaveTwin/Interactables_CaveTwin/TLE_ProbeWindow",
@@ -346,7 +387,9 @@
 					"x": 0,
 					"y": 0,
 					"z": 0
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // EYE SYMBOL WINDOW
 				"path": "CaveTwin_Body/Sector_CaveTwin/Interactables_CaveTwin/Structure_NOM_EyeSymbol",
@@ -359,7 +402,9 @@
 					"x": 6.1628,
 					"y": 355.8502,
 					"z": 90.819
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // AIRLOCK
 				"path": "WhiteholeStation_Body/Sector_WhiteholeStation/Interactibles_WhiteholeStation/Prefab_NOM_Airlock",
@@ -372,7 +417,9 @@
 					"x": 56.65459,
 					"y": 351.5557,
 					"z": 87.23574
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // ATP data storage
 				"path": "TimeLoopRing_Body/Interactibles_TimeLoopRing/MaskPlatform/",
@@ -385,7 +432,9 @@
 					"x": 343.4267,
 					"y": 177.0099,
 					"z": 262.1415
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // SOLANUM
 				"path": "QuantumMoon_Body/Sector_QuantumMoon/State_EYE/Interactables_EYEState/ConversationPivot/Character_NOM_Solanum/Nomai_ANIM_SkyWatching_Idle",
@@ -398,7 +447,9 @@
 					"x": 278.8101,
 					"y": 187.0614,
 					"z": 257.3699
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // MASK/HEADGEAR, painted
 				"path": "Comet_Body/Prefab_NOM_Shuttle/Sector_NomaiShuttleInterior/Props_NomaiShuttleInterior/Hanging Suit/Props_NOM_Mask_GearNew",
@@ -411,7 +462,9 @@
 					"x": 274.8354,
 					"y": 198.0755,
 					"z": 246.2169
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // MASK/HEADGEAR, Solanum's
 				"path": "Comet_Body/Prefab_NOM_Shuttle/Sector_NomaiShuttleInterior/Props_NomaiShuttleInterior/Hanging Suit/Character_NOM_Nomai_v2/Props_NOM_Mask_GearNew",
@@ -424,7 +477,9 @@
 					"x": 274.8354,
 					"y": 198.0755,
 					"z": 246.2169
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // CORPSE, on side
 				"path": "TowerTwin_Body/Sector_TowerTwin/Sector_Tower_GD/Props_Tower_GD/Prefab_NOM_Dead_Suit_GroundB",
@@ -437,7 +492,9 @@
 					"x": 28.53425,
 					"y": 355.1722,
 					"z": 92.41549
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // CORPSE, Solanum, on ass
 				"path": "QuantumMoon_Body/Sector_QuantumMoon/State_TH/Interactables_THState/QuantumDeadNomaiSuit/State_4/Prefab_NOM_Dead_Suit_GroundC",
@@ -450,7 +507,9 @@
 					"x": 292.9484,
 					"y": 179.7525,
 					"z": 264.1232
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // CORPSE, pre-crash suit/Nomai Grave, falling pose
 				"path": "DeadNomai_Body/Prefab_NOM_Dead_Suit_Advanced_FloatC", // Sometimes? might be prefixed with DB_EscapePodDimension_Body/Sector_EscapePodDimension/Interactables_EscapePodDimension/DynamicProps_EscapePodDimension/
@@ -463,7 +522,9 @@
 					"x": 297.8382,
 					"y": 179.1908,
 					"z": 264.7913
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			},
 			{ // Gravestone
 				"path": "TimberHearth_Body/Sector_TH/Sector_Village/Sector_VillageCemetery/Props_VillageCemetery/OtherComponentsGroup/HEA_Backer_Tombstone/Props_HEA_TombStone",
@@ -476,7 +537,9 @@
 					"x": 66.71198,
 					"y": 168.6275,
 					"z": 263.9781
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			}
 		],
 		"gravityCannons": [
@@ -492,6 +555,8 @@
 					"y": 0,
 					"z": 90
 				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true,
 				"controls": { // GRAV CANN CONTROLS
 					"position": {
 						"x": -517.85,
@@ -502,7 +567,9 @@
 						"x": 180,
 						"y": 0,
 						"z": 90
-					}
+					},
+					"parentPath": "Sector/NomaiTestStuff",
+					"isRelativeToParent": true
 				},
 				"computer": { // GRAV CANN COMPUTER
 					"position": {
@@ -514,7 +581,9 @@
 						"x": 180,
 						"y": 0,
 						"z": 90
-					}
+					},
+					"parentPath": "Sector/NomaiTestStuff",
+					"isRelativeToParent": true
 				}
 			}
 		],
@@ -530,7 +599,9 @@
 					"x": 77.77872,
 					"y": 181.1147,
 					"z": 279.338
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			}
 		],
 		"translatorText": [
@@ -546,7 +617,9 @@
 					"x": 31.4449,
 					"y": 176.5095,
 					"z": 271.6126
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			}
 		],
 		"campfires": [
@@ -560,7 +633,8 @@
 					"x": 28.82484,
 					"y": 354.1073,
 					"z": 89.96764
-				}
+				},
+				"initialState": "unlit"
 			}
 		],
 		"fuelTanks": [
@@ -575,7 +649,9 @@
 					"x": 56.423,
 					"y": 354.2705,
 					"z": 89.86367
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			}
 		],
 		"warpTransmitters": [
@@ -589,7 +665,9 @@
 					"x": 45.83854,
 					"y": 182.7472,
 					"z": 276.1134
-				}
+				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true
 			}
 		],
 		"warpReceivers": [
@@ -605,6 +683,8 @@
 					"y": 185.9994,
 					"z": 261.1057
 				},
+				"parentPath": "Sector/NomaiTestStuff",
+				"isRelativeToParent": true,
 				"computer": { // WARP PAD COMPUTER
 					"position": {
 						"x": -498.1015,
@@ -615,7 +695,9 @@
 						"x": 293.2731,
 						"y": 347.3331,
 						"z": 102.1562
-					}
+					},
+					"parentPath": "Sector/NomaiTestStuff",
+					"isRelativeToParent": true
 				}
 			}
 		],
@@ -632,7 +714,9 @@
 						"x": 47.01972,
 						"y": 169.6392,
 						"z": 265.806
-					}
+					},
+					"parentPath": "Sector/NomaiTestStuff",
+					"isRelativeToParent": true
 				},
 				"whiteboard": { // REMOTE WHIETBOARD
 					"position": {
@@ -644,7 +728,9 @@
 						"x": 273.6806,
 						"y": 254.6285,
 						"z": 188.0259
-					}
+					},
+					"parentPath": "Sector/NomaiTestStuff",
+					"isRelativeToParent": true
 				}
 			}
 		]
@@ -655,7 +741,7 @@
 				"style": "PreCrashNomai",
 				"paintedDetails": "Removed", // "AltMaterial", "Faded", or "Removed".
 				"props": [
-					"Sector/"
+					"Sector/NomaiTestStuff"
 				]
 			}
 		]
