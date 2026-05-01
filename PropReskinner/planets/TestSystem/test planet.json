@@ -540,6 +540,105 @@
 				},
 				"parentPath": "Sector/NomaiTestStuff",
 				"isRelativeToParent": true
+			},
+			{
+				"rename": "SuitTestGuys"
+			},
+			{
+				"rename": "Guy1",
+				"path": "QuantumMoon_Body/Sector_QuantumMoon/State_EYE/Interactables_EYEState/ConversationPivot/Character_NOM_Solanum/Nomai_ANIM_SkyWatching_Idle",
+				"position": {
+					"x": -495.3635,
+					"y": 40.48402,
+					"z": -54.5533
+				},
+				"rotation": {
+					"x": 85.33772,
+					"y": 268.7898,
+					"z": 5.057611
+				},
+				"parentPath": "Sector/SuitTestGuys",
+				"isRelativeToParent": true
+			},
+			{
+				"rename": "Guy2",
+				"path": "QuantumMoon_Body/Sector_QuantumMoon/State_EYE/Interactables_EYEState/ConversationPivot/Character_NOM_Solanum/Nomai_ANIM_SkyWatching_Idle",
+				"position": {
+					"x": -495.1404,
+					"y": 40.46919,
+					"z": -56.55287
+				},
+				"rotation": {
+					"x": 85.33772,
+					"y": 268.7784,
+					"z": 5.276794
+				},
+				"parentPath": "Sector/SuitTestGuys",
+				"isRelativeToParent": true
+			},
+			{
+				"rename": "Guy3",
+				"path": "QuantumMoon_Body/Sector_QuantumMoon/State_EYE/Interactables_EYEState/ConversationPivot/Character_NOM_Solanum/Nomai_ANIM_SkyWatching_Idle",
+				"position": {
+					"x": -494.9171,
+					"y": 40.45425,
+					"z": -58.48536
+				},
+				"rotation": {
+					"x": 85.33797,
+					"y": 268.7535,
+					"z": 5.475
+				},
+				"parentPath": "Sector/SuitTestGuys",
+				"isRelativeToParent": true
+			},
+			{
+				"rename": "Guy4",
+				"path": "QuantumMoon_Body/Sector_QuantumMoon/State_EYE/Interactables_EYEState/ConversationPivot/Character_NOM_Solanum/Nomai_ANIM_SkyWatching_Idle",
+				"position": {
+					"x": -494.6702,
+					"y": 40.43771,
+					"z": -60.54879
+				},
+				"rotation": {
+					"x": 85.33822,
+					"y": 268.7234,
+					"z": 5.683067
+				},
+				"parentPath": "Sector/SuitTestGuys",
+				"isRelativeToParent": true
+			},
+			{
+				"rename": "Guy5",
+				"path": "QuantumMoon_Body/Sector_QuantumMoon/State_EYE/Interactables_EYEState/ConversationPivot/Character_NOM_Solanum/Nomai_ANIM_SkyWatching_Idle",
+				"position": {
+					"x": -494.4149,
+					"y": 40.42056,
+					"z": -62.6109
+				},
+				"rotation": {
+					"x": 85.33839,
+					"y": 268.7089,
+					"z": 5.906737
+				},
+				"parentPath": "Sector/SuitTestGuys",
+				"isRelativeToParent": true
+			},
+			{
+				"rename": "Guy6",
+				"path": "QuantumMoon_Body/Sector_QuantumMoon/State_EYE/Interactables_EYEState/ConversationPivot/Character_NOM_Solanum/Nomai_ANIM_SkyWatching_Idle",
+				"position": {
+					"x": -494.4149,
+					"y": 40.42056,
+					"z": -62.6109
+				},
+				"rotation": {
+					"x": 85.33839,
+					"y": 268.7089,
+					"z": 5.906737
+				},
+				"parentPath": "Sector/SuitTestGuys",
+				"isRelativeToParent": true
 			}
 		],
 		"gravityCannons": [
@@ -739,9 +838,42 @@
 		"PropReskinner": [
 			{
 				"style": "PreCrashNomai",
-				"paintedDetails": "Removed", // "AltMaterial", "Faded", or "Removed".
+				"paintedDetails": "Faded", // "AltMaterial", "Faded", or "Removed".
+				"nomaiCharacterSuit": "planets/TestSystem/NomaiSuits/Dark.png",
 				"props": [
 					"Sector/NomaiTestStuff"
+				]
+			},
+			{
+				"style": "PreCrashNomai",
+				"paintedDetails": "Removed",
+				"nomaiCharacterSuit": "planets/TestSystem/NomaiSuits/Hero.png",
+				"props": [
+					"Sector/SuitTestGuys/Guy1"
+				]
+			},
+			{
+				"style": "PreCrashNomai",
+				"paintedDetails": "AltMaterial",
+				"nomaiCharacterSuit": "planets/TestSystem/NomaiSuits/Dark.png",
+				//"nomaiMaskTrim": "planets/TestSystem/NomaiSuits/mask_trim_vessel_computer.png",
+				"props": [
+					"Sector/SuitTestGuys/Guy2"
+				]
+			},
+			{
+				"nomaiCharacterSuit": "planets/TestSystem/NomaiSuits/Salmon.png",
+				"props": [
+					"Sector/SuitTestGuys/Guy3"
+				]
+			},
+			{
+				"style": "PreCrashNomai",
+				"paintedDetails": "Faded",
+				"nomaiCharacterSuit": "planets/TestSystem/NomaiSuits/Supervillian.png",
+				"nomaiMaskTrim": "Default",
+				"props": [
+					"Sector/SuitTestGuys/Guy4"
 				]
 			}
 		]

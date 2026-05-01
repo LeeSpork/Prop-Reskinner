@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Reflection;
+using System.Threading;
 using HarmonyLib;
 using OWML.Common;
 using OWML.ModHelper;
@@ -57,6 +58,11 @@ namespace PropReskinner
                     }
                 }
             });
+
+            NewHorizons.GetStarSystemLoadedEvent().AddListener((name) =>
+            {
+                RepMan = null; // Kill him
+            });
         }
 
         //public void OnCompleteSceneLoad(OWScene previousScene, OWScene newScene)
@@ -78,6 +84,40 @@ namespace PropReskinner
 
         private Material GetReplacementMaterial(Material material, PropReskinnerInfo info)
         {
+            if (info.nomaiCharacterSuit != null)
+            { 
+                if (material.name.Contains("Character_NOM_Nomai_v2_mat")
+                || material.name.Contains("Character_EYE_Nomai_v2_d_mat")
+                || material.name.Contains("Character_NOM_NomaiDirty_v2_mat")
+                || material.name.Contains("Character_NOM_NomaiDirty_R_v2_mat")
+                || material.name.Contains("Character_NOM_NomaiDirty_Advanced_mat")
+                || material.name.Contains("Character_NOM_NomaiDirty_Advanced_R_mat")
+                )
+                {
+                    material.mainTexture = RepMan.CustomTexture(info.nomaiCharacterSuit);
+
+                    // Make sure these aren't the LOD versions
+                    material.SetTexture("_MetallicGlossMap", RepMan.OWTex("Character_NOM_Nomai_v2_s"));
+                    material.SetTexture("_BumpMap", RepMan.OWTex("Character_NOM_Nomai_v2_n"));
+                    return material;
+                }
+            }
+
+            if (info.nomaiMaskTrim != null && material.name.Contains("Props_NOM_Mask_Trim_mat"))
+            {
+                if (info.nomaiMaskTrim == "Default")
+                    return material;
+                else if (info.nomaiMaskTrim == "Vessel")
+                    return RepMan.OWMat("Structure_NOM_SilverPorcelain_mat");
+                else
+                {
+                    material.mainTexture = RepMan.CustomTexture(info.nomaiMaskTrim);
+                    material.SetTexture("_MetallicGlossMap", null);
+                    material.SetTexture("_BumpMap", null);
+                    return material;
+                }
+            }
+
             if (info.style == PropReskinnerStyles.Default) return material;
 
             string baseMat, metalMat, detailedMat;

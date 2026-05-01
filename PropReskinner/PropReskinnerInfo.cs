@@ -30,6 +30,13 @@
         public PaintedDetailsMode paintedDetails;
 
         /// <summary>
+        /// Path to diffuse texture to use for suited Nomai charaters (e.g. Solanum, corpses)
+        /// </summary>
+        public string nomaiCharacterSuit;
+
+        public string nomaiMaskTrim;
+
+        /// <summary>
         /// Paths to props that you want to get reskinned. Will reskin any children as well.
         /// </summary>
         public string[] props;
