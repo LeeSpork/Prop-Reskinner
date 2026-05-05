@@ -838,7 +838,7 @@
 		"PropReskinner": [
 			{
 				"style": "PreCrashNomai",
-				"paintedDetails": "Faded", // "AltMaterial", "Faded", or "Removed".
+				"details": "Keep", // "AltMaterial", "Keep", or "Clean".
 				"nomaiCharacterSuit": "planets/TestSystem/NomaiSuits/Dark.png",
 				"props": [
 					"Sector/NomaiTestStuff"
@@ -846,7 +846,7 @@
 			},
 			{
 				"style": "PreCrashNomai",
-				"paintedDetails": "Removed",
+				"details": "Clean",
 				"nomaiCharacterSuit": "planets/TestSystem/NomaiSuits/Hero.png",
 				"props": [
 					"Sector/SuitTestGuys/Guy1"
@@ -854,7 +854,7 @@
 			},
 			{
 				"style": "PreCrashNomai",
-				"paintedDetails": "AltMaterial",
+				"details": "AltMaterial",
 				"nomaiCharacterSuit": "planets/TestSystem/NomaiSuits/Dark.png",
 				//"nomaiMaskTrim": "planets/TestSystem/NomaiSuits/mask_trim_vessel_computer.png",
 				"props": [
@@ -869,7 +869,7 @@
 			},
 			{
 				"style": "PreCrashNomai",
-				"paintedDetails": "Faded",
+				"details": "Keep",
 				"nomaiCharacterSuit": "planets/TestSystem/NomaiSuits/Supervillian.png",
 				"nomaiMaskTrim": "Default",
 				"props": [

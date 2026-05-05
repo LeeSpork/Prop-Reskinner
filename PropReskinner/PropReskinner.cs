@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Reflection;
-using System.Threading;
 using HarmonyLib;
 using OWML.Common;
 using OWML.ModHelper;
@@ -58,11 +57,6 @@ namespace PropReskinner
                     }
                 }
             });
-
-            NewHorizons.GetStarSystemLoadedEvent().AddListener((name) =>
-            {
-                RepMan = null; // Kill him
-            });
         }
 
         //public void OnCompleteSceneLoad(OWScene previousScene, OWScene newScene)
@@ -78,11 +72,11 @@ namespace PropReskinner
             RepMan ??= new();
             foreach (var renderer in prop.GetComponentsInChildren<Renderer>())
             {
-                renderer.materials = [.. renderer.materials.Select(material => GetReplacementMaterial(material, info))];
+                renderer.materials = [.. renderer.materials.Select(material => GetReplacementMaterial(ref material, info))];
             }
         }
 
-        private Material GetReplacementMaterial(Material material, PropReskinnerInfo info)
+        private Material GetReplacementMaterial(ref Material material, PropReskinnerInfo info)
         {
             if (info.nomaiCharacterSuit != null)
             { 
@@ -120,14 +114,23 @@ namespace PropReskinner
 
             if (info.style == PropReskinnerStyles.Default) return material;
 
-            string baseMat, metalMat, detailedMat;
+            string baseMat, metalMat, detailedMat,
+                baseTex;
 
             switch (info.style)
             {
                 case PropReskinnerStyles.PreCrashNomai:
                     baseMat = "Structure_NOM_PorcelainClean_mat";
+                    baseTex = "Structure_NOM_PorcelainClean_d";
                     metalMat = "Structure_NOM_Silver_mat";
                     detailedMat = "Structure_NOM_SilverPorcelain_mat";
+                    break;
+
+                case PropReskinnerStyles.BrittleHollow:
+                    baseMat = "Terrain_BH_RockPlain_v2_mat";
+                    baseTex = "Terrain_BH_RockSide_d";
+                    metalMat = "Terrain_BH_RockGeode_v2_mat";
+                    detailedMat = "Terrain_BH_RockGeode_v2_mat"; // Is this the best you got?
                     break;
 
                 default:
@@ -172,11 +175,11 @@ namespace PropReskinner
             if (material.name.Contains("Props_NOM_MaskPainted_mat") // Texture has quarters red, white, turquoise-green, yellow
                 )
             {
-                switch (info.paintedDetails)
+                switch (info.details)
                 {
-                    case PaintedDetailsMode.Faded:
+                    case PaintedDetailsMode.Keep:
                         return material;
-                    case PaintedDetailsMode.Removed:
+                    case PaintedDetailsMode.Clean:
                         return RepMan.OWMat(baseMat);
                     case PaintedDetailsMode.AltMaterial:
                         return RepMan.OWMat(detailedMat);
@@ -185,50 +188,23 @@ namespace PropReskinner
             else if (material.name.Contains("Structure_NOM_PropTile_Color_mat") // Diamonds pattern, yellow and blueish. Used for: SimpleChair (aka bench); Container (aka box with spout).
                 || material.name.Contains("Structure_NOM_HexagonTile_mat") // teal and yellow diamonds with space. Used on bed.
                 || material.name.Contains("Structure_NOM_WallOutside_mat") // Detail: diagonal square carvings, worn.
+                || material.name.Contains("Structure_NOM_Zigzag_Color_mat")
+                || material.name.Contains("Structure_NOM_RotatingDoor_mat") // _DetailAlbedoMap _DetailNormalMap
                 )
             {
                 //_DetailMainTex _DetailMetallicGlossMap _DetailBumpMap
 
-                switch (info.paintedDetails)
+                switch (info.details)
                 {
-                    case PaintedDetailsMode.Faded:
-                        ReplaceTexturesFrom(material, RepMan.OWMat(baseMat));
-                        return material;
-                    case PaintedDetailsMode.Removed:
-                        return RepMan.OWMat(baseMat);
-                    case PaintedDetailsMode.AltMaterial:
-                        return RepMan.OWMat(detailedMat);
-                }
-            }
-            else if (material.name.Contains("Structure_NOM_Zigzag_Color_mat")
-                )
-            {
-                switch (info.paintedDetails)
-                {
-                    case PaintedDetailsMode.Faded:
-                        ReplaceTexturesFrom(material, RepMan.OWMat(baseMat));
-                        return material;
-                    case PaintedDetailsMode.Removed:
-                        return RepMan.OWMat(baseMat); // TODO would be nice to still have zigzag bumpmap or something
-                    case PaintedDetailsMode.AltMaterial:
-                        return RepMan.OWMat(detailedMat);
-                }
-            }
-            if (material.name.Contains("Structure_NOM_RotatingDoor_mat")
-                )
-            {
-                switch (info.paintedDetails)
-                {
-                    case PaintedDetailsMode.Faded:
+                    case PaintedDetailsMode.Keep:
                         // Replace main texture only
-                        ReplaceTexturesFrom(material, RepMan.OWMat(baseMat));
+                        material.SetTexture("_MainTex", RepMan.OWTex(baseTex));
                         return material;
-                    case PaintedDetailsMode.Removed:
+                    case PaintedDetailsMode.Clean:
                         return RepMan.OWMat(baseMat);
                     case PaintedDetailsMode.AltMaterial:
                         return RepMan.OWMat(detailedMat);
                 }
-                // _DetailAlbedoMap _DetailNormalMap
             }
             else if (material.name.Contains("Structure_NOM_TrimPattern_mat") // Atlas of horizontal strips. Details and colour on furnature, Solanum's mask, small box, detailed warp reciever...
                 || material.name.Contains("Structure_NOM_Whiteboard_mat") // Whiteboard (very helpful comment I know)
@@ -237,15 +213,16 @@ namespace PropReskinner
             {
                 //_DetailMainTex _DetailMetallicGlossMap _DetailBumpMap
 
-                switch (info.paintedDetails)
+                switch (info.details)
                 {
-                    case PaintedDetailsMode.Faded:
-                        ReplaceTexturesFrom(material, RepMan.OWMat(baseMat));
+                    case PaintedDetailsMode.Keep:
+                        // Replace main texture only
+                        material.SetTexture("_MainTex", RepMan.OWTex(baseTex));
                         return material;
-                    case PaintedDetailsMode.Removed:
+                    case PaintedDetailsMode.Clean:
                         return RepMan.OWMat(baseMat);
                     case PaintedDetailsMode.AltMaterial:
-                        return RepMan.OWMat(metalMat);
+                        return RepMan.OWMat(metalMat); // Keep it simple
                 }
             }
             else if (material.name.Contains("Props_NOM_Scroll_mat"))
@@ -257,6 +234,15 @@ namespace PropReskinner
             {
                 ReplaceTexturesFrom(material, RepMan.OWMat(baseMat));
                 ReplaceTexturesFrom(material, RepMan.OWMat(metalMat), "Detail4");
+                switch (info.details)
+                {
+                    case PaintedDetailsMode.Keep:
+                        return material;
+                    case PaintedDetailsMode.Clean:
+                        return RepMan.OWMat(baseMat); // TODO
+                    case PaintedDetailsMode.AltMaterial:
+                        return RepMan.OWMat(detailedMat); // TODO
+                }
             }
             else if (material.name.Contains("Structure_NOM_WarpReceiver_mat"))
             {
@@ -291,11 +277,11 @@ namespace PropReskinner
                 material.SetTexture("_Detail2BumpMap", null);
 
                 // Structure_NOM_WovenGrooves_d - floor tiles where some are painted (used for gravity cannon's path bit)
-                switch (info.paintedDetails)
+                switch (info.details)
                 {
-                    case PaintedDetailsMode.Faded:
+                    case PaintedDetailsMode.Keep:
                         break;
-                    case PaintedDetailsMode.Removed:
+                    case PaintedDetailsMode.Clean:
                         ReplaceTexturesFrom(material, RepMan.OWMat(baseMat), "Detail3");
                         break;
                     case PaintedDetailsMode.AltMaterial:
@@ -303,19 +289,19 @@ namespace PropReskinner
                         break;
                 }
 
-                // _Detail4MainTex _Detail4MetallicGlossMap _Detail4BumpMap : OrbitalProbeCannon_NOM_Diamonds_d
+                // _Detail4MainTex _Detail4MetallicGlossMap _Detail4BumpMap : OrbitalProbeCannon_NOM_Diamonds_d // TODO
             }
             else if (material.name.Contains("Structure_NOM_Floor_mat")  // floor tiles where some are painted.
                 || material.name.Contains("Structure_NOM_WovenGrooves_mat") // Version Seen on Big bridges (BH, TT, ATP)
                 )
             {
-                switch (info.paintedDetails)
+                switch (info.details)
                 {
-                    case PaintedDetailsMode.Faded:
+                    case PaintedDetailsMode.Keep:
                         // Replace main texture only
-                        ReplaceTexturesFrom(material, RepMan.OWMat(baseMat));
+                        material.SetTexture("_MainTex", RepMan.OWTex(baseTex));
                         return material;
-                    case PaintedDetailsMode.Removed:
+                    case PaintedDetailsMode.Clean:
                         return RepMan.OWMat(baseMat);
                     case PaintedDetailsMode.AltMaterial:
                         ReplaceTexturesFrom(material, RepMan.OWMat(baseMat));
@@ -328,13 +314,13 @@ namespace PropReskinner
                 || material.name.Contains("IntactModule_NOM_HologramFloor_mat") // Gravity floor but different
                 )
             {
-                switch (info.paintedDetails)
+                switch (info.details)
                 {
-                    case PaintedDetailsMode.Faded:
+                    case PaintedDetailsMode.Keep:
                         // Replace main texture only
-                        ReplaceTexturesFrom(material, RepMan.OWMat(baseMat));
+                        material.SetTexture("_MainTex", RepMan.OWTex(baseTex));
                         return material;
-                    case PaintedDetailsMode.Removed:
+                    case PaintedDetailsMode.Clean:
                         return RepMan.OWMat(baseMat);
                     case PaintedDetailsMode.AltMaterial:
                         return RepMan.OWMat("Structure_NOM_SilverPorcelainGlow_mat");
@@ -347,15 +333,15 @@ namespace PropReskinner
                 || material.name.Contains("IntactModule_NOM_HologramFloorBroken_mat") // gravity floor but different off
                 )
             {
-                switch (info.paintedDetails)
+                switch (info.details)
                 {
-                    case PaintedDetailsMode.Faded:
+                    case PaintedDetailsMode.Keep:
                         // Replace main texture only
-                        ReplaceTexturesFrom(material, RepMan.OWMat(baseMat));
+                        material.SetTexture("_MainTex", RepMan.OWTex(baseTex));
                         return material;
                     case PaintedDetailsMode.AltMaterial:
                         return RepMan.OWMat(detailedMat); // Assuming it looks like Structure_NOM_SilverPorcelainGlow_mat but not glowing
-                    case PaintedDetailsMode.Removed:
+                    case PaintedDetailsMode.Clean:
                         return RepMan.OWMat(baseMat);
                 }
             }
@@ -364,7 +350,7 @@ namespace PropReskinner
                 )
             {
                 // TODO isn't there a circle version of the orb track material?
-                material.SetTexture("_DetailAlbedoMap", RepMan.OWMat(baseMat).mainTexture);
+                material.SetTexture("_DetailAlbedoMap", RepMan.OWTex(baseTex));
             }
             else if (material.name.Contains("Structure_NOM_Copper_mat")
                 || material.name.Contains("Structure_NOM_CopperOld_mat")
@@ -374,7 +360,7 @@ namespace PropReskinner
             {
                 return RepMan.OWMat(metalMat);
             }
-            else if (material.name.Contains("Structure_NOM_SandStone_Darker_mat")
+            else if (material.name.Contains("Structure_NOM_SandStone_Darker_mat") // ???? TODO
                 || material.name.Contains("Structure_NOM_Grooves_Red_mat") // Stairs found on StatueIsland, SmallBowl
                 || material.name.Contains("Props_NOM_Mask_Trim_mat") // Post-crash guys have lines connected with circles. Pre-crash guys just have SilverPorcelain material.
                 )
@@ -418,7 +404,6 @@ namespace PropReskinner
             }
 
             return material;
-            // A more sensible way to do all of this could have been to just compare the textures/their names and replace them on a texture by texture basis, but oh well whatever I like this way too
         }
     }
 }
