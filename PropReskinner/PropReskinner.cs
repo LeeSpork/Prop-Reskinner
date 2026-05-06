@@ -170,7 +170,7 @@ namespace PropReskinner
                 )
             {
                 // Replace main texture only
-                ReplaceTexturesFrom(material, RepMan.OWMat(baseMat));
+                material.SetTexture("_MainTex", RepMan.OWTex(baseTex));
             }
             if (material.name.Contains("Props_NOM_MaskPainted_mat") // Texture has quarters red, white, turquoise-green, yellow
                 )
